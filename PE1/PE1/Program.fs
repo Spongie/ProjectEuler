@@ -18,7 +18,7 @@ module main =
          |"8" -> printf "Solution to Problem8: %d\n" Problem8.Solve
          |"9" -> printf "Solution to Problem9: %d\n" Problem9.Solve
          |"10" -> printf "Solution to Problem10: %d\n" Problem10.Solve
-         |"11" -> printf "Solution to Problem11: %A\n" Problem11.Solve
+         |"11" -> printf "Solution to Problem11: %i\n" Problem11.Solve
          |"12" -> printf "Solution to Problem12: %d\n" Problem12.Solve
          |"13" -> printf "Solution to Problem13: %s\n" Problem13.Solve
          | _ -> ()
@@ -28,6 +28,6 @@ module main =
 
     [<EntryPoint>]
     let main argv =       
-        printf "Available Problems: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13\n"
+        printf "Available Problems: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13\n"
         forever ()
         0

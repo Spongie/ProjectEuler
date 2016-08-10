@@ -26,48 +26,60 @@ module Problem11 =
     let getRightSums startY startX =
         if startX + 3 >= 20 then 0
         else
-        grid.[startY, startX..startX + 3]
-        |>Utility.multiplyList
-
+            grid.[startY, startX..startX + 3]
+            |>Utility.multiplyList
+            
     let getVerticalSums startY startX =
-        grid.[startY..startY + 3, startX]
-        |>Seq.toArray
-        |>Utility.multiplyList
+        if startY + 3 >= 20 then 0
+        else
+            grid.[startY..startY + 3, startX]
+            |>Seq.toArray
+            |>Utility.multiplyList
 
     let getRightDiagonal startY startX =
-        let list = [grid.[startY, startX]]
-        let x = list @ [grid.[startY + 1, startX + 1]]
-        let y = x @ [grid.[startY + 2, startX + 2]]
-        y @ [grid.[startY + 3, startX + 3]]
-        |>Utility.multiplyList
+        if startY + 3 >= 20 || startX + 3 >= 20 then 0
+        else
+            let rec f y x i acc =
+                match i with
+                | 4 -> acc
+                | _ -> 
+                    let newAcc = grid.[y,x]::acc
+                    f (y+1) (x+1) (i+1) newAcc
+            f startY startX 0 []
+            |>Utility.multiplyList
 
     let getLeftDiagonal startY startX =
-        let list = [grid.[startY, startX]]
-        let x = list @ [grid.[startY - 1, startX - 1]]
-        let y = x @ [grid.[startY - 2, startX - 2]]
-        y @ [grid.[startY - 3, startX - 3]]
-        |>Utility.multiplyList
+        if startY + 3 >= 20 || startX - 3 < 0 then 0
+        else
+            let rec f y x i acc =
+                match i with
+                | 4 -> acc
+                | _ -> 
+                    let newAcc = grid.[y,x]::acc
+                    f (y+1) (x-1) (i+1) newAcc
+            f startY startX 0 []
+            |>Utility.multiplyList
 
     let getAllRightSums =
-        [0..400]
-        |>List.map (fun x -> (getRightSums (int(x / 20)) (x % 20)))
-
+        [0..399]
+        |>List.map (fun x -> (getRightSums (x / 20) (x % 20)))
+                    
     let getAllVerticalSums =
-        [0..400]
-        |>List.map (fun x -> (getVerticalSums (x % 20) x))
+        [0..399]
+        |>List.map (fun x -> (getVerticalSums (int(x / 20)) (x % 20)))
 
     let getAllRightDiagonalSums =
-        [0..400]
-        |>List.map (fun x -> (getRightDiagonal (x % 20) x))
+        [0..399]
+        |>List.map (fun x -> (getRightDiagonal (int(x / 20)) (x % 20)))
 
     let getAllLeftDiagonlaSums =
-        [0..400]
-        |>List.map (fun x -> (getLeftDiagonal (x % 20) x))
+        [0..399]
+        |>List.map (fun x -> (getLeftDiagonal (int(x / 20)) (x % 20)))
         
     let Solve =
-        grid.[0, 1]
-        //getAllRightSums //@ getAllLeftDiagonlaSums @ getAllVerticalSums @ getAllRightDiagonalSums
-        //|>List.max
+        getAllRightSums @ getAllLeftDiagonlaSums @ getAllVerticalSums @ getAllRightDiagonalSums
+        |>List.max
+
                 
 
 

@@ -103,12 +103,11 @@ module Problem13 =
                    20849603980134001723930671666823555245252804609722I;
                    53503534226472524250874054075591789781264330331690I]
 
-    let sumBigNumbers =
+    let Solve =
         numbers
         |>List.sum
-
-    let Solve =
-        sumBigNumbers.ToString().Substring(0,10)
+        |> sprintf "%A"
+        |> fun x -> x.Substring(0,10)
 
         
         

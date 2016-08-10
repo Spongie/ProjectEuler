@@ -14,12 +14,11 @@ module Problem12 =
         Seq.unfold(fun x -> Some(getTriangular x, x + 1)) 1
 
     let getNrOfDivisors x =
-        let upper = x / 2 // (int (sqrt (float x)))
+        let upper = x / 2
         {1..upper}
         |>Seq.filter(fun t -> x % t = 0)
         |>Seq.length
         |> (+) 1
-        
 
     let Solve =
         TriangleSeq
