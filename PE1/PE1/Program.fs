@@ -21,6 +21,7 @@ module main =
          |"11" -> printf "Solution to Problem11: %i\n" Problem11.Solve
          |"12" -> printf "Solution to Problem12: %d\n" Problem12.Solve
          |"13" -> printf "Solution to Problem13: %s\n" Problem13.Solve
+         |"14" -> printf "Solution to Problem14: %s\n" Problem14.Solve
          | _ -> ()
          match Int32.TryParse input with
          |true,_ -> forever ()
@@ -28,6 +29,6 @@ module main =
 
     [<EntryPoint>]
     let main argv =       
-        printf "Available Problems: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13\n"
+        printf "Available Problems: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14\n"
         forever ()
         0
