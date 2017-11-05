@@ -62,6 +62,7 @@
     <Compile Include="Problems\Problem6.cs" />
     <Compile Include="Problems\Problem7.cs" />
     <Compile Include="Problems\Problem8.cs" />
+    <Compile Include="Problems\Problem9.cs" />
     <Compile Include="Problems\ProblemUtilities.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
