@@ -67,6 +67,7 @@
     <Compile Include="Problem16.fs" />
     <Compile Include="Problem29.fs" />
     <Compile Include="Problem17.fs" />
+    <Compile Include="Problem18.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>

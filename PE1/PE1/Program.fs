@@ -26,6 +26,7 @@ module main =
         |"15" -> printf "Solution to Problem15: %i\n" Problem15.Solve
         |"16" -> printf "Solution to Problem16: %A\n" Problem16.Solve
         |"17" -> printf "Solution to Problem17: %A\n" Problem17.Solve
+        |"18" -> printf "Solution to Problem18: %A\n" Problem18.Solve
         |"29" -> printf "Solution to Problem29: %i\n" Problem29.Solve
         | _ -> ()
         match Int32.TryParse input with

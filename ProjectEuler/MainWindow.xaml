@@ -1,0 +1,44 @@
+﻿<Window x:Class="ProjectEuler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectEuler"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Problems}" SelectedItem="{Binding SelectedProblem}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Name: "/>
+                <Label Content="{Binding SelectedProblem.Name}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Solution: "/>
+                <Label Content="{Binding SelectedProblem.Solution}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Time: "/>
+                <Label Content="{Binding SelectedProblem.ElapsedTime.TotalMilliseconds}"/>
+            </StackPanel>
+            <DockPanel Height="20">
+                <ProgressBar Value="{Binding SelectedProblem.Progress}" Minimum="0" Maximum="100"/>
+            </DockPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding SelectedProblem.ClickCommand}" Content="Solve" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
