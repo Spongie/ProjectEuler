@@ -5,7 +5,7 @@ namespace ProjectEuler.Problems
 {
     public static class ProblemUtilities
     {
-        private static bool IsPrime(int number)
+        private static bool IsPrime(long number)
         {
             if (number % 2 == 0)
                 return false;
@@ -19,9 +19,9 @@ namespace ProjectEuler.Problems
             return true;
         }
 
-        public static IEnumerable<int> Primes()
+        public static IEnumerable<long> Primes()
         {
-            int number = 3;
+            long number = 3;
             yield return 2;
 
             while (true)
