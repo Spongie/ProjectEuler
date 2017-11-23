@@ -31,7 +31,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Time: "/>
-                <Label Content="{Binding SelectedProblem.ElapsedTime.TotalMilliseconds}"/>
+                <Label Content="{Binding SelectedProblem.ElapsedTime}"/>
             </StackPanel>
             <DockPanel Height="20">
                 <ProgressBar Value="{Binding SelectedProblem.Progress}" Minimum="0" Maximum="100"/>

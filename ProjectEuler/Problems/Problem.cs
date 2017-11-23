@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace ProjectEuler.Problems
@@ -8,7 +9,7 @@ namespace ProjectEuler.Problems
     {
         private ICommand _clickCommand;
         protected long _solution;
-        protected TimeSpan _elapsedTime;
+        protected double _elapsedTime;
         protected float _progress;
         protected BackgroundWorker worker;
 
@@ -25,9 +26,10 @@ namespace ProjectEuler.Problems
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            var start = DateTime.Now;
+            var sw = Stopwatch.StartNew();
             _solution = DoSolutionSolve();
-            _elapsedTime = DateTime.Now - start;
+            sw.Stop();
+            _elapsedTime = sw.Elapsed.TotalMilliseconds;
             FirePropertyChanged();
         }
 
@@ -44,7 +46,7 @@ namespace ProjectEuler.Problems
         }
 
         public long Solution => _solution;
-        public TimeSpan ElapsedTime => _elapsedTime;
+        public double ElapsedTime => _elapsedTime;
         public float Progress
         {
             get
