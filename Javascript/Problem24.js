@@ -1,5 +1,3 @@
-//Remember n!
-
 function calcFac(number) {
     if (number === 1)
         return 1;
@@ -51,8 +49,6 @@ function solve() {
                     continue;
 
                 totalPermutationsFound++;
-                if (totalPermutationsFound % 10000 === 0)
-                    console.log(totalPermutationsFound);
 
                 if (totalPermutationsFound === 1000000) {
                     console.log(currentNumberString);
@@ -65,14 +61,5 @@ function solve() {
         }
     }
 }
-/*
-let s = "1234";
-let index = 3;
-let temp = s[index];
 
-let m = replaceAt(s, index, s[index - 1]);
-m = replaceAt(m, index - 1, temp);
-
-console.log(m);
-*/
 solve();
